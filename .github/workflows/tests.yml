@@ -1,0 +1,27 @@
+name: GA_tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout кода
+      uses: actions/checkout@v2
+
+    - name: Req installations
+      run: pip install -r requirements.txt
+
+    - name: testing start
+      run: python manage.py test
+
+    - name: Saving results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: test-results

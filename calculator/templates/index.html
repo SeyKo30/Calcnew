@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VAT Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/calculator/js/vat_calculator.js" type="module"></script> <!-- Подключение скрипта как модуль -->
+</head>
+<body>
+    <h2>VAT Calculator</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_price">Price:</label><br>
+        <input type="text" id="id_price" name="price" required><br>
+        <label for="id_vat_rate">VAT (%):</label><br>
+        <input type="number" id="id_vat_rate" name="vat_rate" required><br><br>
+        <button type="submit">get Result</button>
+    </form>
+    <div id="result"></div>
+</body>
+</html>
